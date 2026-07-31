@@ -1,38 +1,36 @@
-﻿@using BibliotecaMVC.Models
+﻿@model IEnumerable<BibliotecaMVC.Models.Libro>
 @{
-    List<Libro> libros = ViewBag.libros;
+    ViewData["Title"] = "Catálogo de Libros";
 }
-<h2>Catalogo de Libros</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Título</th>
-            <th>Autor</th>
-            <th>Categoría</th>
-            <th>Año de Publicación</th>
-            <th>Precio</th>
-            <th>Disponibilidad</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var libro in libros)
-        {
-            <tr>
-                <td>@libro.Titulo</td>
-                <td>@libro.Autor</td>
-                <td>@libro.Categoria</td>
-                <td>@libro.AnioPublicacion</td>
-                <td>$@libro.Precio</td>
-                <td>
-                    @if (libro.Disponible)
-                    {
-                        <spam class="badge bg-success">Disponible</spam>
-                    }
-                    else
-                    {
-                        <spam class="badge bg-danger">Prestado</spam>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
+<h1>@ViewData["Title"]</h1>
+
+<a asp-action="Crear" class="btn btn-primary mb-3">Crear Nuevo Libro</a>
+
+<div class="row">
+    @foreach (var libro in Model)
+    {
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-4">
+                        <img src="~/images/@(string.IsNullOrEmpty(libro.ImagePath) ? "placeholder.jpg" : libro.ImagePath)" class="img-fluid rounded-start" alt="@libro.Titulo" />
+                    </div>
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">@libro.Titulo</h5>
+                            <p class="card-text">
+                                <strong>Autor:</strong> @libro.Autor<br />
+                                <strong>Categoría:</strong> @libro.Categoria<br />
+                                <strong>Año:</strong> @libro.AnioPublicacion<br />
+                                <strong>Precio:</strong> @libro.Precio.ToString("C")<br />
+                            </p>
+                            <a asp-action="Detalles" asp-route-id="@libro.Id" class="btn btn-primary">Detalles</a>
+                            <a asp-action="Edit" asp-route-id="@libro.Id" class="btn btn-warning">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@libro.Id" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

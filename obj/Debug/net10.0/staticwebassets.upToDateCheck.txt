@@ -61,6 +61,11 @@ wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\js\site.js
 wwwroot\favicon.ico
 wwwroot\css\site.css
+wwwroot\images\1984.jpg
+wwwroot\images\cien-anos-soledad.jpg
+wwwroot\images\clean-code.jpg
+wwwroot\images\don-quijote.jpg
+wwwroot\images\el-principito.jpg
 E:\Desktop\PWFE\BibliotecaMVC\wwwroot\lib\jquery\LICENSE.txt
 E:\Desktop\PWFE\BibliotecaMVC\wwwroot\lib\jquery\dist\jquery.slim.min.map
 E:\Desktop\PWFE\BibliotecaMVC\wwwroot\lib\jquery\dist\jquery.slim.min.js

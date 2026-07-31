@@ -1,0 +1,27 @@
+﻿@model BibliotecaMVC.Models.Autor
+@{
+    ViewData["Title"] = "Detalles del Autor";
+}
+<h1>@Model.Nombre @Model.Apellido</h1>
+<dl class="row">
+    <dt class="col-sm-3">Nacionalidad</dt>
+    <dd class="col-sm-9">@Model.Nacionalidad</dd>
+    <dt class="col-sm-3">Fecha de Nacimiento</dt>
+    <dd class="col-sm-9">@Model.FechaNacimiento.ToString("dd/MM/yyyy")</dd>
+    <dt class="col-sm-3">Edad</dt>
+    <dd class="col-sm-9">@(DateTime.Now.Year - Model.FechaNacimiento.Year)</dd>
+    <dt class="col-sm-3">Activo</dt>
+    <dd class="col-sm-9">
+        @if (Model.Activo)
+        {
+            <span class="badge bg-success">Sí</span>
+        }
+        else
+        {
+            <span class="badge bg-danger">No</span>
+        }
+    </dd>
+</dl>
+
+<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Eliminar</a>
+<a asp-action="Index" class="btn btn-primary">Volver al listado de autores</a>

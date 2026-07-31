@@ -1,36 +1,35 @@
-﻿@using BibliotecaMVC.Models
+﻿@model IEnumerable<BibliotecaMVC.Models.Autor>
 @{
-    List<Autor> autores = ViewBag.autores;
+    ViewData["Title"] = "Listado de Autores";
 }
-<h2>Lista de Autores</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Nacionalidad</th>
-            <th>Fecha de Nacimiento</th>
-            <th>Activo</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var autor in autores)
-        {
-            <tr>
-                <td>@autor.Nombre</td>
-                <td>@autor.Apellido</td>
-                <td>@autor.Nacionalidad</td>
-                <td>@autor.FechaNacimiento.ToString("dd/MM/yyyy")</td>
-                <td>@if (autor.Activo)
-                    {
-                        <span class="badge bg-success">Sí</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-danger">No</span>
-                    }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<h1>@ViewData["Title"]</h1>
+<p>Se encuentran @Model.Count() autores registrados en la base de datos.</p>
+<a asp-action="Crear" class="btn btn-primary mb-3">Crear Nuevo Autor</a>
+<div class="row">
+    @foreach (var autor in Model)
+    {
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@autor.Nombre @autor.Apellido</h5>
+                    <p class="card-text">
+                        <strong>Nacionalidad:</strong> @autor.Nacionalidad<br />
+                        <strong>Fecha de Nacimiento:</strong> @autor.FechaNacimiento.ToString("dd/MM/yyyy")<br />
+                        <p>Edad: @(DateTime.Now.Year - autor.FechaNacimiento.Year)</p>
+                        <strong>Activo:</strong> @if (autor.Activo)
+                        {
+                            <span class="badge bg-success">Sí</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">No</span>
+                        }
+                    </p>
+                    <a asp-action="Detalles" asp-route-id="@autor.Id" class="btn btn-primary">Detalles</a>
+                    <a asp-action="Edit" asp-route-id="@autor.Id" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@autor.Id" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>/div>

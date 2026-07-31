@@ -1,28 +1,19 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\Desktop\\PWFE\\BibliotecaMVC\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|e:\\desktop\\pwfe\\bibliotecamvc\\views\\shared\\_menuprincipal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|solutionrelative:views\\shared\\_menuprincipal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "DockedWidth": 322,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Bookmark",
@@ -57,17 +48,8 @@
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_MenuPrincipal.cshtml",
-              "DocumentMoniker": "E:\\Desktop\\PWFE\\BibliotecaMVC\\Views\\Shared\\_MenuPrincipal.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_MenuPrincipal.cshtml",
-              "ToolTip": "E:\\Desktop\\PWFE\\BibliotecaMVC\\Views\\Shared\\_MenuPrincipal.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_MenuPrincipal.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-07-24T00:02:59.021Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             }
           ]
         }
