@@ -29,3 +29,53 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+/*variables*/
+:root {
+    --color-principal: #808080;
+    --color-secundario: #f5f5f5;
+    --color-texto: #000000;
+}
+.about-header {
+    background: var(--color-principal);
+    color: var(--color-secundario);
+    padding: 40px;
+}
+.about-container {
+    display: flex;
+    gap: 20px;
+    padding: 40px;
+}
+.about-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+}
+.about-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+.team-section {
+    background: var(--color-secundario);
+    padding: 20px 40px;
+}
+.team-section img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.team-section figcaption {
+    text-align: center;
+    margin-top: 10px;
+    color: gray;
+    font-style: italic;
+
+}
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+}

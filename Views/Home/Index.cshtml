@@ -1,9 +1,41 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
+<div class ="container mt-5">
+<div class="row align-items-center">
+    <div class="col-md-6">
     <h1 class="display-4">Sistema de Gestión de Biblioteca</h1>
-    <p>Bienvenido al sistema de gestión de la biblioteca.
+    <p class="lead">
+        Bienvenido al sistema de gestión de la biblioteca.
+        Un sistema pensado para facilitar la administración de libros, usuarios y préstamos.
+        Al iniciar sesión, podrás acceder a todas las funcionalidades del sistema y gestionar eficientemente los recursos de la biblioteca.
     </p>
+        <a class="btn btn-outline-dark" asp-controller="Home" asp-action="Acerca">Acerca de nuestra Biblioteca</a>
+        </div>
+<div class="col-md-6 text-center">
+    <img src="https://picsum.photos/500/350" class="img-fluid rounded shadow" alt="Biblioteca">
 </div>
+</div>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Características del Sistema</h2>
+        <p class="text-center">
+            El sistema permite gestionar libros, usuarios y préstamos de manera eficiente, ofreciendo una experiencia intuitiva y amigable para los administradores de la biblioteca.
+        </p>
+        <div class="row">
+            <div class="card col-md-4 shadow">
+                <i class="fas fa-book fa-3x mb-3"></i>
+                <h4>Gestión de Libros<span class="badge text-bg-secondary">Nuevo</span></h4>
+                <p>Agregar, editar y eliminar libros de la biblioteca, así como consultar su disponibilidad.</p>
+            </div>
+            <div class=" card col-md-4 shadow">
+                <i class="fas fa-users fa-3x mb-3"></i>
+                <h4>Gestión de Usuarios<span class="badge text-bg-secondary">Nuevo</span></h4>
+                <p>Registrar y administrar usuarios, asignar roles y controlar el acceso al sistema.</p>
+            </div>
+            <div class="card col-md-4 shadow">
+                <i class="fas fa-handshake fa-3x mb-3"></i>
+                <h4>Gestión de Préstamos <span class="badge text-bg-secondary align-content-center">Nuevo</span></h4>
+                <p>Registrar préstamos y devoluciones de libros, así como generar reportes de actividad.</p>
+            </div>
+        <div class="badge">una badge</div>
+    </div>
