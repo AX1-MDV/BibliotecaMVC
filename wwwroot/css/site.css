@@ -35,23 +35,7 @@ body {
     --color-secundario: #f5f5f5;
     --color-texto: #000000;
 }
-.about-header {
-    background: var(--color-principal);
-    color: var(--color-secundario);
-    padding: 40px;
-}
-.about-container {
-    display: flex;
-    gap: 20px;
-    padding: 40px;
-}
-.about-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    transition: 0.2s;
-}
+
 .about-content:hover {
     transform: translateY(-5px);
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
@@ -79,3 +63,107 @@ body {
         padding: 20px;
     }
 }
+/*estilos flex y grid*/
+.about-header, .home-header {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.75rem;
+    border-radius: .5rem;
+    background: var(--color-principal);
+    color: var(--color-secundario);
+    margin-bottom: 1.5rem;
+}
+
+.home-hero {
+    flex: 1 1 60%;
+}
+
+    .home-hero h1 {
+        margin-bottom: .5rem;
+    }
+
+    .home-hero p {
+        color: #555;
+    }
+
+.home-actions {
+    display: flex;
+    gap: .75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.home-visual {
+    flex: 0 0 36%;
+    display: flex;
+    justify-content: center;
+}
+
+    .home-visual img {
+        width: 100%;
+        max-width: 420px;
+        border-radius: .5rem;
+        box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    }
+
+/* Grid para tarjetas de características */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: .5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+
+    .feature h4 {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    .feature p {
+        margin: 0;
+        color: #444;
+    }
+
+/* Sobre la biblioteca: usa layout similar a Acerca */
+.about-container {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.about-content {
+    background: #fff;
+    padding: 1rem;
+    border-radius: .5rem;
+    border: 1px solid #eee;
+    flex: 1 1 45%;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .home-visual {
+        order: -1;
+        max-width: 100%;
+    }

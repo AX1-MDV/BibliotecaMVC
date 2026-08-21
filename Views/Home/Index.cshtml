@@ -1,41 +1,67 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class ="container mt-5">
-<div class="row align-items-center">
-    <div class="col-md-6">
-    <h1 class="display-4">Sistema de Gestión de Biblioteca</h1>
-    <p class="lead">
-        Bienvenido al sistema de gestión de la biblioteca.
-        Un sistema pensado para facilitar la administración de libros, usuarios y préstamos.
-        Al iniciar sesión, podrás acceder a todas las funcionalidades del sistema y gestionar eficientemente los recursos de la biblioteca.
-    </p>
-        <a class="btn btn-outline-dark" asp-controller="Home" asp-action="Acerca">Acerca de nuestra Biblioteca</a>
-        </div>
-<div class="col-md-6 text-center">
-    <img src="https://picsum.photos/500/350" class="img-fluid rounded shadow" alt="Biblioteca">
-</div>
-</div>
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">Características del Sistema</h2>
-        <p class="text-center">
-            El sistema permite gestionar libros, usuarios y préstamos de manera eficiente, ofreciendo una experiencia intuitiva y amigable para los administradores de la biblioteca.
+<header class="about-header home-header" role="banner">
+    <div class="home-hero">
+        <h1 class="display-4">Sistema de Gestión de Biblioteca</h1>
+        <p class="lead text-white">
+            Bienvenido al sistema de gestión de la biblioteca. Administra libros, usuarios y préstamos de forma sencilla y segura.
         </p>
-        <div class="row">
-            <div class="card col-md-4 shadow">
-                <i class="fas fa-book fa-3x mb-3"></i>
-                <h4>Gestión de Libros<span class="badge text-bg-secondary">Nuevo</span></h4>
-                <p>Agregar, editar y eliminar libros de la biblioteca, así como consultar su disponibilidad.</p>
-            </div>
-            <div class=" card col-md-4 shadow">
-                <i class="fas fa-users fa-3x mb-3"></i>
-                <h4>Gestión de Usuarios<span class="badge text-bg-secondary">Nuevo</span></h4>
-                <p>Registrar y administrar usuarios, asignar roles y controlar el acceso al sistema.</p>
-            </div>
-            <div class="card col-md-4 shadow">
-                <i class="fas fa-handshake fa-3x mb-3"></i>
-                <h4>Gestión de Préstamos <span class="badge text-bg-secondary align-content-center">Nuevo</span></h4>
-                <p>Registrar préstamos y devoluciones de libros, así como generar reportes de actividad.</p>
-            </div>
-        <div class="badge">una badge</div>
+
+        <div class="home-actions">
+            <a class="btn btn-primary" asp-controller="Libros" asp-action="Index">Ver Catálogo</a>
+            <a class="btn btn-outline-dark" asp-controller="Home" asp-action="Acerca">Acerca</a>
+        </div>
     </div>
+
+    <div class="home-visual" aria-hidden="true">
+        <img src="~/images/biblioteca.jpg" alt="Biblioteca">
+    </div>
+</header>
+
+<section>
+    <h2 class="text-center mb-3">Características del Sistema</h2>
+    <p class="text-center">
+        El sistema permite gestionar libros, usuarios y préstamos de manera eficiente, ofreciendo una experiencia intuitiva y amigable.
+    </p>
+
+    <div class="features" role="list">
+        <article class="feature" role="listitem">
+            <h4>Gestión de Libros <span class="badge bg-secondary">Nuevo</span></h4>
+            <p>Agregar, editar y eliminar libros; administrar imágenes y consultar disponibilidad.</p>
+            <div style="margin-top:auto;">
+                <a class="btn btn-sm btn-primary" asp-controller="Libros" asp-action="Index">Ver libros</a>
+            </div>
+        </article>
+
+        <article class="feature" role="listitem">
+            <h4>Gestión de Usuarios</h4>
+            <p>Registrar y administrar usuarios, asignar roles y controlar el acceso al sistema.</p>
+            <div style="margin-top:auto;">
+                <a class="btn btn-sm btn-outline-dark" asp-controller="Home" asp-action="Acerca">Más info</a>
+            </div>
+        </article>
+
+        <article class="feature" role="listitem">
+            <h4>Gestión de Préstamos</h4>
+            <p>Registrar préstamos y devoluciones, y generar reportes de actividad para el seguimiento.</p>
+            <div style="margin-top:auto;">
+                <a class="btn btn-sm btn-primary" asp-controller="Home" asp-action="prestamos">Ir a préstamos</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="about-container" aria-labelledby="sobre-titulo">
+    <div class="about-content" id="sobre-titulo">
+        <h3>Quiénes somos</h3>
+        <p>Somos un equipo comprometido con la promoción de la lectura y la gestión eficiente de recursos bibliotecarios.</p>
+    </div>
+
+    <aside class="about-content" aria-label="Misión y Visión">
+        <h3>Misión</h3>
+        <p>Facilitar el acceso a la información y promover el conocimiento.</p>
+        <h3>Visión</h3>
+        <p>Ser una biblioteca referente en innovación y servicio a la comunidad.</p>
+    </aside>
+</section>
