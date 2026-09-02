@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "E:\\Desktop\\PWFE\\BibliotecaMVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|e:\\desktop\\pwfe\\bibliotecamvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|e:\\desktop\\pwfe\\bibliotecamvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|e:\\desktop\\pwfe\\bibliotecamvc\\controllers\\autorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|solutionrelative:controllers\\autorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 322,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,28 +58,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "site.css",
-              "DocumentMoniker": "E:\\Desktop\\PWFE\\BibliotecaMVC\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
-              "ToolTip": "E:\\Desktop\\PWFE\\BibliotecaMVC\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "wwwroot\\css\\site.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-08-21T00:39:21.776Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\Desktop\\PWFE\\BibliotecaMVC\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "E:\\Desktop\\PWFE\\BibliotecaMVC\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-21T00:27:39.808Z",
+              "Title": "AutoresController.cs",
+              "DocumentMoniker": "E:\\Desktop\\PWFE\\BibliotecaMVC\\Controllers\\AutoresController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AutoresController.cs",
+              "ToolTip": "E:\\Desktop\\PWFE\\BibliotecaMVC\\Controllers\\AutoresController.cs",
+              "RelativeToolTip": "Controllers\\AutoresController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAxwEgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-02T20:31:48.655Z",
               "EditorCaption": ""
             }
           ]
