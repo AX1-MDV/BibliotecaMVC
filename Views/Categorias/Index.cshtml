@@ -1,0 +1,71 @@
+﻿@model IEnumerable<BibliotecaMVC.Models.Categoria>
+@using System.Text.Json
+@{
+    ViewData["Title"] = "Categorias";
+}
+<div class="d-flex justify-content-between align-items-center">
+    <h1 class="display-4">Gestion de Categorias</h1>
+    <a asp-controller="Categorias" asp-action="Create" class="btn btn-primary">Agregar Categoria</a>
+</div>
+<table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categoria in Model)
+        {
+            <tr>
+                <td>@categoria.Id</td>
+                <td>@categoria.Nombre</td>
+                <td>@categoria.Descripcion</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@categoria.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@categoria.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form id="deleteForm" asp-controller="Categorias" asp-action="DeleteConfirmed" method="post" style="display:none;">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="id" id="deleteId" value="" />
+</form>
+
+@section Scripts {
+    <script>
+        var mensaje = @Html.Raw(JsonSerializer.Serialize(TempData["SuccessMessage"] ?? ""));
+        if (mensaje) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Éxito',
+                text: mensaje,
+                timer: 2000,
+                showConfirmButton: false
+            });
+        }
+
+        var confirmMessage = @Html.Raw(JsonSerializer.Serialize(TempData["ConfirmDeleteMessage"] ?? ""));
+        var confirmId = @Html.Raw(JsonSerializer.Serialize(TempData["ConfirmDeleteId"] ?? ""));
+        if (confirmMessage && confirmId) {
+            Swal.fire({
+                title: 'Confirmar eliminación',
+                text: confirmMessage,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('deleteId').value = confirmId;
+                    document.getElementById('deleteForm').submit();
+                }
+            });
+        }
+    </script>
+}
