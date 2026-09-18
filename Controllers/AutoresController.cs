@@ -1,4 +1,5 @@
-﻿using BibliotecaMVC.Interfaces;
+﻿using BibliotecaMVC.Data;
+using Microsoft.EntityFrameworkCore;
 using BibliotecaMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,20 +7,19 @@ namespace BibliotecaMVC.Controllers
 {
     public class AutoresController : Controller
     {
-        private readonly IWebHostEnvironment _env;
-        private readonly IAutorService _autorService;
-        public AutoresController(IWebHostEnvironment env, IAutorService autorService)
+        private readonly BibliotecaContext _context;
+        public AutoresController(BibliotecaContext context)
         {
-            _env = env;
-            _autorService = autorService;
+            _context = context;
         }
-        public IActionResult Index()
+        public  async Task<IActionResult> Index()
         {
-            return View(_autorService.GetAll());
+            var autores = await _context.Autores.ToListAsync();
+            return View(autores);
         }
-        public IActionResult Detalles(int id)
+        public async Task<IActionResult> Detalles(int id)
         {
-            var autor = _autorService.GetById(id);
+            var autor = await _context.Autores.FindAsync(id);
             if (autor == null) return NotFound();
             return View(autor);
         }
@@ -30,53 +30,69 @@ namespace BibliotecaMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Crear(Autor autor)
+        public async Task<IActionResult> Crear(Autor autor)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _autorService.Create(autor);
+                return View(autor);
+            }
+
+            try
+            {
+                _context.Autores.Add(autor);
+                await _context.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = "Autor guardado correctamente en la base de datos.";
                 return RedirectToAction("Index");
             }
-            return View(autor);
+            catch (Exception ex)
+            {
+                // loggear el error
+                ModelState.AddModelError(string.Empty, "Error al guardar el autor. Intente de nuevo.");
+                return View(autor);
+            }
         }
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            var autor = _autorService.GetById(id);
+            var autor = await _context.Autores.FindAsync(id);
             if (autor == null) return NotFound();
             return View(autor);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Autor autor)
+        public async Task<IActionResult> Edit(int id, Autor autor)
         {
+            if (id != autor.Id) return NotFound();
             if (ModelState.IsValid)
             {
-                var updated = _autorService.Update(autor);
-                if (!updated) return NotFound();
+                _context.Autores.Update(autor);
+                await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(autor);
         }
 
-        // AutoresDelete
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
 
-            var autor = _autorService.GetById(id.Value);
+            var autor = await _context.Autores.FindAsync(id.Value);
             if (autor == null) return NotFound();
 
             return View(autor);
         }
 
-        // POST: AutoresDelete
+        // AutoresDelete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var deleted = _autorService.Delete(id);
-            if (!deleted) return NotFound();
+            var autor = await _context.Autores.FindAsync(id);
+            if (autor == null) return NotFound();
+
+            _context.Autores.Remove(autor);
+            await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
     }

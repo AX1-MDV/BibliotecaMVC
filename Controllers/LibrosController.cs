@@ -1,28 +1,30 @@
-﻿using BibliotecaMVC.Interfaces;
+﻿using BibliotecaMVC.Data;
 using BibliotecaMVC.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BibliotecaMVC.Controllers
 {
     public class LibrosController : Controller
     {
+        private readonly BibliotecaContext _context;
         private readonly IWebHostEnvironment _env;
-        private readonly ILibrosService _librosService;
 
-        public LibrosController(IWebHostEnvironment env, ILibrosService librosService)
+        public LibrosController(BibliotecaContext context, IWebHostEnvironment env)
         {
+            _context = context;
             _env = env;
-            _librosService = librosService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_librosService.GetAll());
+            var libros = await _context.Libros.ToListAsync();
+            return View(libros);
         }
 
-        public IActionResult Detalles(int id)
+        public async Task<IActionResult> Detalles(int id)
         {
-            var libro = _librosService.GetById(id);
+            var libro = await _context.Libros.FindAsync(id);
             if (libro == null) return NotFound();
             return View(libro);
         }
@@ -38,20 +40,32 @@ namespace BibliotecaMVC.Controllers
         {
             if (!ModelState.IsValid) return View(libro);
 
-            await _librosService.CreateAsync(libro, imageFile);
+            if (imageFile != null && imageFile.Length > 0)
+            {
+                var uploads = Path.Combine(_env.WebRootPath, "images");
+                Directory.CreateDirectory(uploads);
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(imageFile.FileName)}";
+                var filePath = Path.Combine(uploads, fileName);
+                await using var stream = new FileStream(filePath, FileMode.Create);
+                await imageFile.CopyToAsync(stream);
+                libro.ImagePath = fileName;
+            }
+
+            _context.Libros.Add(libro);
+            await _context.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = "Libro creado correctamente en la base de datos.";
             return RedirectToAction("Index");
         }
 
-        // GET: Libros/Edit/5
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
-            var libro = _librosService.GetById(id.Value);
+            var libro = await _context.Libros.FindAsync(id.Value);
             if (libro == null) return NotFound();
             return View(libro);
         }
 
-        // POST: Libros/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Libro libro, IFormFile? imageFile)
@@ -59,28 +73,69 @@ namespace BibliotecaMVC.Controllers
             if (id != libro.Id) return BadRequest();
             if (!ModelState.IsValid) return View(libro);
 
-            var updated = await _librosService.UpdateAsync(libro, imageFile);
-            if (!updated) return NotFound();
+            var existente = await _context.Libros.FindAsync(id);
+            if (existente == null) return NotFound();
 
+            if (imageFile != null && imageFile.Length > 0)
+            {
+                var uploads = Path.Combine(_env.WebRootPath, "images");
+                Directory.CreateDirectory(uploads);
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(imageFile.FileName)}";
+                var filePath = Path.Combine(uploads, fileName);
+                await using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await imageFile.CopyToAsync(stream);
+                }
+
+                if (!string.IsNullOrEmpty(existente.ImagePath))
+                {
+                    var oldPath = Path.Combine(uploads, existente.ImagePath);
+                    if (System.IO.File.Exists(oldPath)) System.IO.File.Delete(oldPath);
+                }
+
+                existente.ImagePath = fileName;
+            }
+
+            existente.Titulo = libro.Titulo;
+            existente.Autor = libro.Autor;
+            existente.Categoria = libro.Categoria;
+            existente.Precio = libro.Precio;
+            existente.Disponible = libro.Disponible;
+            existente.AnioPublicacion = libro.AnioPublicacion;
+
+            _context.Libros.Update(existente);
+            await _context.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = "Libro actualizado correctamente.";
             return RedirectToAction("Index");
         }
 
-        // GET: Libros/Delete/5
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
-            var libro = _librosService.GetById(id.Value);
+            var libro = await _context.Libros.FindAsync(id.Value);
             if (libro == null) return NotFound();
             return View(libro);
         }
 
-        // POST: Libros/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var deleted = _librosService.Delete(id);
-            if (!deleted) return NotFound();
+            var libro = await _context.Libros.FindAsync(id);
+            if (libro == null) return NotFound();
+
+            if (!string.IsNullOrEmpty(libro.ImagePath))
+            {
+                var uploads = Path.Combine(_env.WebRootPath, "images");
+                var imgPath = Path.Combine(uploads, libro.ImagePath);
+                if (System.IO.File.Exists(imgPath)) System.IO.File.Delete(imgPath);
+            }
+
+            _context.Libros.Remove(libro);
+            await _context.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = "Libro eliminado correctamente.";
             return RedirectToAction("Index");
         }
     }

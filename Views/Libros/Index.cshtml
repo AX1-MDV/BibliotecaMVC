@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<BibliotecaMVC.Models.Libro>
+@using System.Text.Json
 @{
     ViewData["Title"] = "Catálogo de Libros";
 }
@@ -10,7 +11,7 @@
     @foreach (var libro in Model)
     {
         <div class="col-md-6">
-            <div class="card mb-3">
+            <div class="card about-content">
                 <div class="row g-0">
                     <div class="col-4">
                         <img src="~/images/@(string.IsNullOrEmpty(libro.ImagePath) ? "placeholder.jpg" : libro.ImagePath)" class="img-fluid rounded-start" alt="@libro.Titulo" />
@@ -34,3 +35,19 @@
         </div>
     }
 </div>
+
+@section Scripts {
+    <script>
+        var mensaje = @Html.Raw(JsonSerializer.Serialize(TempData["SuccessMessage"] ?? ""));
+        if (mensaje) {
+            // SweetAlert
+            Swal.fire({
+                icon: 'success',
+                title: 'Éxito',
+                text: mensaje,
+                timer: 2000,
+                showConfirmButton: false
+            });
+        }
+    </script>
+}
