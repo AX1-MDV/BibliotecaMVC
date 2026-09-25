@@ -4,7 +4,7 @@
 }
 <h1>Crear libro</h1>
 
-<form asp-action="Crear" method="post" enctype="multipart/form-data" class="row g-3">
+<form asp-action="Crear" method="post" enctype="multipart/form-data" class="row g-3 swal-save-form">
     @Html.AntiForgeryToken()
     <div class="col-md-6">
         <label asp-for="Titulo" class="form-label"></label>

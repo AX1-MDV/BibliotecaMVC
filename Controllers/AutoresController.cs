@@ -68,6 +68,8 @@ namespace BibliotecaMVC.Controllers
             {
                 _context.Autores.Update(autor);
                 await _context.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = "Autor editado correctamente en la base de datos.";
                 return RedirectToAction("Index");
             }
             return View(autor);
@@ -93,6 +95,8 @@ namespace BibliotecaMVC.Controllers
 
             _context.Autores.Remove(autor);
             await _context.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = "Autor eliminado correctamente de la base de datos.";
             return RedirectToAction("Index");
         }
     }

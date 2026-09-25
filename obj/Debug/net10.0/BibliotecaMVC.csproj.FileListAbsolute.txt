@@ -22,7 +22,6 @@ E:\Desktop\PWFE\BibliotecaMVC\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.c
 E:\Desktop\PWFE\BibliotecaMVC\obj\Debug\net10.0\scopedcss\bundle\BibliotecaMVC.styles.css
 E:\Desktop\PWFE\BibliotecaMVC\obj\Debug\net10.0\scopedcss\projectbundle\BibliotecaMVC.bundle.scp.css
 E:\Desktop\PWFE\BibliotecaMVC\obj\Debug\net10.0\compressed\pvz5heplim-{0}-61n19gt1b8-61n19gt1b8.gz
-E:\Desktop\PWFE\BibliotecaMVC\obj\Debug\net10.0\compressed\4i56l1hmhg-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 E:\Desktop\PWFE\BibliotecaMVC\obj\Debug\net10.0\compressed\c86di0uawj-{0}-c2jlpeoesf-c2jlpeoesf.gz
 E:\Desktop\PWFE\BibliotecaMVC\obj\Debug\net10.0\compressed\coss98mmxp-{0}-aexeepp0ev-aexeepp0ev.gz
 E:\Desktop\PWFE\BibliotecaMVC\obj\Debug\net10.0\compressed\x931noq3tf-{0}-ausgxo2sd3-ausgxo2sd3.gz
@@ -219,3 +218,4 @@ E:\Desktop\PWFE\BibliotecaMVC\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Worksp
 E:\Desktop\PWFE\BibliotecaMVC\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 E:\Desktop\PWFE\BibliotecaMVC\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 E:\Desktop\PWFE\BibliotecaMVC\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+E:\Desktop\PWFE\BibliotecaMVC\obj\Debug\net10.0\compressed\4i56l1hmhg-{0}-jg6wyjv4v8-jg6wyjv4v8.gz

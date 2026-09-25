@@ -4,7 +4,7 @@
 }
 <h1>Editar libro</h1>
 
-<form asp-action="Edit" method="post" class="row g-3">
+<form asp-action="Edit" method="post" enctype="multipart/form-data" class="row g-3 swal-save-form">
     @Html.AntiForgeryToken()
     <input type="hidden" asp-for="Id" />
     <div class="col-md-6">
@@ -35,6 +35,12 @@
         <input asp-for="Disponible" class="form-check-input" />
         <label asp-for="Disponible" class="form-check-label"></label>
     </div>
+
+    <div class="col-12">
+        <label class="form-label">Imagen (opcional)</label>
+        <input type="file" name="imageFile" accept="image/*" class="form-control" />
+    </div>
+
     <div class="col-12">
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
