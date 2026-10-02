@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "sH6PKBmzaOU=",
+  "dgSpecHash": "XVO47Qt72qM=",
   "success": true,
   "projectFilePath": "E:\\Desktop\\PWFE\\BibliotecaMVC\\BibliotecaMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alan1\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Alan1\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\10.0.12\\microsoft.aspnetcore.identity.entityframeworkcore.10.0.12.nupkg.sha512",
     "C:\\Users\\Alan1\\.nuget\\packages\\microsoft.bcl.cryptography\\9.0.13\\microsoft.bcl.cryptography.9.0.13.nupkg.sha512",
     "C:\\Users\\Alan1\\.nuget\\packages\\microsoft.build.framework\\18.0.2\\microsoft.build.framework.18.0.2.nupkg.sha512",
     "C:\\Users\\Alan1\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.11.0\\microsoft.codeanalysis.analyzers.3.11.0.nupkg.sha512",

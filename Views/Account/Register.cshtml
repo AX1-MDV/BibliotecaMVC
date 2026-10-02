@@ -1,0 +1,44 @@
+﻿@model BibliotecaMVC.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Registro";
+}
+<h1 class= "about-header">@ViewData["Title"]</h1>
+
+@* Mostrar errores generales *@
+<div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+<form asp-action="Register" method="post" class="about-content">
+    @Html.AntiForgeryToken()
+    <div class="col-md-6">
+        <label asp-for="Username" class="form-label"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="ConfirmPassword" class="form-label"></label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Registrar</button>
+        <a asp-action="Login" class="btn btn-link">¿Ya tienes cuenta? Inicia sesión</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
