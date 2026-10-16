@@ -1,10 +1,12 @@
 ﻿using BibliotecaMVC.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using BibliotecaMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BibliotecaMVC.Controllers
 {
+    [Authorize]
     public class AutoresController : Controller
     {
         private readonly BibliotecaContext _context;
@@ -23,6 +25,8 @@ namespace BibliotecaMVC.Controllers
             if (autor == null) return NotFound();
             return View(autor);
         }
+
+        [Authorize(Roles = "Administrador")]
         public IActionResult Crear()
         {
             return View();
@@ -30,6 +34,7 @@ namespace BibliotecaMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Crear(Autor autor)
         {
             if (!ModelState.IsValid)
@@ -52,6 +57,8 @@ namespace BibliotecaMVC.Controllers
                 return View(autor);
             }
         }
+
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int id)
         {
             var autor = await _context.Autores.FindAsync(id);
@@ -61,6 +68,7 @@ namespace BibliotecaMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int id, Autor autor)
         {
             if (id != autor.Id) return NotFound();
@@ -75,6 +83,7 @@ namespace BibliotecaMVC.Controllers
             return View(autor);
         }
 
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -88,6 +97,7 @@ namespace BibliotecaMVC.Controllers
         // AutoresDelete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var autor = await _context.Autores.FindAsync(id);

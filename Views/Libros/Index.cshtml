@@ -5,7 +5,10 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<a asp-action="Crear" class="btn btn-primary mb-3">Crear Nuevo Libro</a>
+@if (User.IsInRole("Administrador"))
+{
+    <a asp-action="Crear" class="btn btn-primary mb-3">Crear Nuevo Libro</a>
+}
 
 <div class="row">
     @foreach (var libro in Model)
@@ -26,8 +29,12 @@
                                 <strong>Precio:</strong> @libro.Precio.ToString("C")<br />
                             </p>
                             <a asp-action="Detalles" asp-route-id="@libro.Id" class="btn btn-primary">Detalles</a>
-                            <a asp-action="Edit" asp-route-id="@libro.Id" class="btn btn-warning">Editar</a>
-                            <a asp-action="Delete" asp-route-id="@libro.Id" class="btn btn-danger">Eliminar</a>
+
+                            @if (User.IsInRole("Administrador"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@libro.Id" class="btn btn-warning">Editar</a>
+                                <a asp-action="Delete" asp-route-id="@libro.Id" class="btn btn-danger">Eliminar</a>
+                            }
                         </div>
                     </div>
                 </div>

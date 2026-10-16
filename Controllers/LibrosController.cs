@@ -1,10 +1,12 @@
 ﻿using BibliotecaMVC.Data;
+using Microsoft.AspNetCore.Authorization;
 using BibliotecaMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BibliotecaMVC.Controllers
 {
+    [Authorize]
     public class LibrosController : Controller
     {
         private readonly BibliotecaContext _context;
@@ -29,6 +31,7 @@ namespace BibliotecaMVC.Controllers
             return View(libro);
         }
 
+        [Authorize(Roles = "Administrador")]
         public IActionResult Crear()
         {
             return View();
@@ -36,6 +39,7 @@ namespace BibliotecaMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Crear(Libro libro, IFormFile? imageFile)
         {
             if (!ModelState.IsValid) return View(libro);
@@ -58,6 +62,7 @@ namespace BibliotecaMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -68,6 +73,7 @@ namespace BibliotecaMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Edit(int id, Libro libro, IFormFile? imageFile)
         {
             if (id != libro.Id) return BadRequest();
@@ -110,6 +116,7 @@ namespace BibliotecaMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -120,6 +127,7 @@ namespace BibliotecaMVC.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var libro = await _context.Libros.FindAsync(id);

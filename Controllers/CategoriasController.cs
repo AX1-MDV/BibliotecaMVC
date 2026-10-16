@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using BibliotecaMVC.Models;
 using Microsoft.Data.SqlClient;
 
 namespace BibliotecaMVC.Controllers
 {
+    [Authorize]
     public class CategoriasController : Controller
     {
         private readonly string _connectionString;
@@ -38,6 +40,7 @@ namespace BibliotecaMVC.Controllers
             return View(categorias);
         }
 
+        [Authorize(Roles = "Administrador")]
         public IActionResult Create()
         {
             return View();
@@ -45,6 +48,7 @@ namespace BibliotecaMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Create(Categoria categoria)
         {
             if (categoria == null || string.IsNullOrWhiteSpace(categoria.Nombre))
@@ -68,6 +72,7 @@ namespace BibliotecaMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Administrador")]
         public IActionResult Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -78,6 +83,7 @@ namespace BibliotecaMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Edit(int id, Categoria categoria)
         {
             if (id != categoria.Id) return BadRequest();
@@ -105,7 +111,7 @@ namespace BibliotecaMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        // Delete (inicia confirmación via TempData y redirige a Index)
+        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -121,6 +127,7 @@ namespace BibliotecaMVC.Controllers
         // POST: DeleteConfirmed
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public IActionResult DeleteConfirmed(int id)
         {
             using (var connection = new SqlConnection(_connectionString))
