@@ -7,6 +7,8 @@
   </PropertyGroup>
 
 	<ItemGroup>
+		<!-- Se añade referencia explícita para corregir vulnerabilidad en System.Security.Cryptography.Pkcs -->
+		<PackageReference Include="System.Security.Cryptography.Pkcs" Version="9.0.21" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.12" />
 		<PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.12">

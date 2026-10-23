@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "E:\\Desktop\\PWFE\\BibliotecaMVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|e:\\desktop\\pwfe\\bibliotecamvc\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|solutionrelative:data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|e:\\desktop\\pwfe\\bibliotecamvc\\views\\categorias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|solutionrelative:views\\categorias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|e:\\desktop\\pwfe\\bibliotecamvc\\views\\autores\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92B7017A-C797-42AC-74E3-12B2C6664F7D}|BibliotecaMVC.csproj|solutionrelative:views\\autores\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -59,14 +63,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SeedData.cs",
-              "DocumentMoniker": "E:\\Desktop\\PWFE\\BibliotecaMVC\\Data\\SeedData.cs",
-              "RelativeDocumentMoniker": "Data\\SeedData.cs",
-              "ToolTip": "E:\\Desktop\\PWFE\\BibliotecaMVC\\Data\\SeedData.cs",
-              "RelativeToolTip": "Data\\SeedData.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-16T02:08:12.114Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Desktop\\PWFE\\BibliotecaMVC\\Views\\Categorias\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Categorias\\Index.cshtml",
+              "ToolTip": "E:\\Desktop\\PWFE\\BibliotecaMVC\\Views\\Categorias\\Index.cshtml",
+              "RelativeToolTip": "Views\\Categorias\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-23T00:56:49.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Desktop\\PWFE\\BibliotecaMVC\\Views\\Autores\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Autores\\Index.cshtml",
+              "ToolTip": "E:\\Desktop\\PWFE\\BibliotecaMVC\\Views\\Autores\\Index.cshtml",
+              "RelativeToolTip": "Views\\Autores\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-23T00:51:14.787Z",
               "EditorCaption": ""
             }
           ]

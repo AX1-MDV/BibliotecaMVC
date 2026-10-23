@@ -102,7 +102,7 @@ namespace BibliotecaMVC.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult AccesDenied()
+        public IActionResult AccessDenied()
         {
             return View();
         }

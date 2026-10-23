@@ -13,9 +13,13 @@
             <dt class="col-sm-3">Precio</dt><dd class="col-sm-9">@Model.Precio.ToString("C")</dd>
             <dt class="col-sm-3">Disponible</dt><dd class="col-sm-9">@if (Model.Disponible) { <span class="badge bg-success">Sí</span> } else { <span class="badge bg-danger">No</span> }</dd>
         </dl>
-
-        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
-        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Eliminar</a>
+        @if (User.IsInRole("admin"))
+        {
+            <div class="d-flex gap-2">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+                <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Eliminar</a>
+            </div>
+        }
         <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
     </div>
 </div>
